@@ -1,0 +1,25 @@
+run : flask shell
+
+from models.user import User
+users = User.query.all()
+for user in users:
+    print(user.id, user.username, user.email)
+
+
+# Interactive Querying
+users = User.query.all()
+for user in users:
+    print(user.id, user.username, user.email)
+
+
+# Filter Data based on specific conditions
+
+user = User.query.filter_by(username='someusername').first()
+print(user.id, user.username, user.email)
+
+# Count Records
+
+user_count = User.query.count()
+print(user_count)
+
+to exit : exit()
